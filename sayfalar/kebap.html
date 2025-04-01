@@ -1,0 +1,270 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+*{
+margin:0px;
+padding:0px;
+box-sizing:border-box;
+}
+body{
+width:100%;
+height:100vh;
+overflow:hidden;
+display:flex;
+background:limegreen;
+justify-content:center;
+align-content:center;
+}
+.body{
+width:360px;
+height:690px;
+align-content:center;
+overflow:hidden;
+}
+img#backgroundImage{
+width:360px;
+height:360px;
+position:absolute;
+}
+.outer{
+width:100%;
+height:360px;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:5px;
+}
+.lin1,.lin2,.lin3,.lin4,.lin5{
+width:40px;
+height:200px;
+position:relative;
+display:flex;
+justify-content:end;
+flex-direction:column;
+}
+
+.lin1:before,.lin2:before,.lin3:before,.lin4:before,.lin5:before{
+content:'';
+display:inline-block;
+width:3px;
+height:200px;
+background:black;
+position:absolute;
+top:0px;
+left:50%;
+}
+.item{
+width:50px;
+height:40px;
+top:0px;
+position:relative;
+z-index:1
+}
+.chosed{
+position:absolute;
+transition:all 0.5s ease-in-out;
+top:-100px;
+left:0px;
+z-index:1;
+}
+</style>
+
+</head>
+<body>
+<div class="body">
+
+<img id="backgroundImage" src="../resim/mangal.webp" alt="resim">
+<div class="outer">
+<div class="lin1" onclick="anim('lin1')"></div>
+<div class="lin2" onclick="anim('lin2')"></div>
+<div class="lin3" onclick="anim('lin3')"></div>
+<div class="lin4" onclick="anim('lin4')"></div>
+<div class="lin5" onclick="anim('lin5')"></div>
+</div>
+
+<template>
+<img id="domates" class="item domates" src="../resim/domates.png" alt="domates">
+<img id="et" class="item et" src="../resim/et.png" alt="et">
+<img id="biber" class="item biber" src="../resim/biber.png" alt="biber">
+</template>
+
+</div>
+
+<script>
+let lin1=[]
+let lin2=[]
+let lin3=[]
+let lin4=[]
+let lin5=[]
+document.addEventListener("DOMContentLoaded",()=>{
+random()
+})
+
+//rastgele sayi olusturur
+let arr=[]
+function random(){
+arr=[1,1,1,1,1,2,2,2,2,2,3,3,3,3,3]
+for(let i=0;i<arr.length;i++){
+let rand=Math.floor(Math.random()*15)
+let temp=arr[i]
+arr[i]=arr[rand]
+arr[rand]=temp
+}
+lin1=arr.slice(0,5)
+lin2=arr.slice(5,10)
+lin3=arr.slice(10,15)
+fillLine("lin1")
+fillLine("lin2")
+fillLine("lin3")
+}
+
+//sisleri doldurur
+function fillLine(line){
+
+
+
+
+//remove all childs
+let lineElement=document.querySelector("."+line)
+lineElement.innerHTML=""
+let ar
+
+if(line=="lin1")ar=lin1
+if(line=="lin2")ar=lin2
+if(line=="lin3")ar=lin3
+if(line=="lin4")ar=lin4
+if(line=="lin5")ar=lin5
+
+ar.map((x,i)=>{
+let temp=document.querySelector("template").content.cloneNode(true)
+let parent=document.querySelector('.'+line)
+let et=temp.querySelector(".et")
+let biber=temp.querySelector(".biber")
+let domates=temp.querySelector(".domates")
+
+if(x==1)parent.appendChild(et)
+if(x==2)parent.appendChild(biber)
+if(x==3)parent.appendChild(domates)
+
+})
+
+
+}
+//ilk dokunma animasyon
+let dragEl=""
+let animEnded=true
+function anim(el){
+if(dragEl==""&&animEnded){
+dragEl=el
+let parent=document.querySelector('.'+el)
+let img=parent.querySelector("img")
+img.classList.add("chosed")
+
+}
+else{
+let el1=document.querySelector('.'+el)
+let el2=document.querySelector('.'+dragEl)
+let l1=el1.getBoundingClientRect().left
+let l2=el2.getBoundingClientRect().left
+ if(dragEl!=el){
+ let imgCount=el1.querySelectorAll("img").length
+  if(imgCount<5){
+  check(dragEl,el)
+  }
+ }
+check()
+}
+}
+ 
+function check(e1,e2){
+let imagee1=document.querySelector("."+e1).querySelector("img")
+let imagee2=document.querySelector("."+e2).querySelector("img")
+if(!(imagee2==null)){
+if(imagee2.id!=imagee1.id){
+dragEl=""
+document.querySelector('.'+e1).querySelector("img").classList.remove("chosed")
+return
+}
+
+}
+if(!animEnded)return
+animEnded=false
+
+let l1=document.querySelector("."+e1).getBoundingClientRect().left
+let l2=document.querySelector("."+e2).getBoundingClientRect().left
+let img=document.querySelector('.'+e1).querySelector("img")
+
+
+img.style.transition="all 0.5s ease-in-out"
+img.style.position="absolute"
+img.style.left=l2-l1+"px"
+
+setTimeout(()=>{
+let top2=180-(document.querySelector("."+e2).querySelectorAll("img").length*40)||160
+img.style.top=top2+"px"
+},500)
+
+setTimeout(()=>{
+fillLine("lin1")
+fillLine("lin2")
+fillLine("lin3")
+fillLine("lin4")
+fillLine("lin5")
+animEnded=true
+}
+,1000)
+
+let arrel1=findArray(e1)
+let arrel2=findArray(e2)
+
+
+//array duzenleme
+//arrayi bul el ve dragel sifirla 
+//array .pop ve array .pushbefore
+arrel2.unshift(arrel1.shift())
+dragEl=""
+
+//checkgame ended
+if(isChecked()){
+setTimeout(()=>{
+alert("game ended")
+location.reload()
+},1300)
+}
+
+}
+//oyun bitimi kontrolu
+
+
+function isChecked(){
+let arr=[lin1,lin2,lin3,lin4,lin5]
+isEnded=true
+
+arr.map(x=>{
+if(x.length==0)return
+if(x.length==5){
+let s=new Set()
+x.map(y=>s.add(y))
+if(s.size ==1)
+return true
+}
+isEnded=false
+})
+
+return isEnded
+}
+
+function findArray(str){
+if(str=="lin1")return lin1
+if(str=="lin2")return lin2
+if(str=="lin3")return lin3
+if(str=="lin4")return lin4
+if(str=="lin5")return lin5
+
+}
+</script>
+
+</body>
+</html>

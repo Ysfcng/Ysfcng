@@ -1,0 +1,170 @@
+<html>
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+*{
+padding:0;
+margin:0;
+box-sizing:border-box
+}
+body{
+background:linear-gradient(to bottom,#ffecd2,#fcb69f)
+}
+
+.up{
+width:100%;
+height:20px;
+}
+.ball{
+width:30px;
+height:30px;
+background:#2c3e50;
+border-radius:50%;
+position:absolute;
+}
+.ball:before{
+content:"$";
+display:inline-block;
+width:25px;
+height:25px;
+border-radius:50%;
+background:#f1c40f;
+font-weight:bold;
+color:#2c3e50;
+transform:translate(2.5px,2.5px);
+text-align:center
+}
+.container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.box{
+width:80px;
+height:80px;
+background:#34984b;
+color:white;
+font-weight:bold;
+display:flex;
+align-items:center;
+justify-content:center;
+position:absolute;
+top:400px;
+cursor: grab;
+}
+.box:before{
+content:'';
+display:inline-block;
+position:absolute;
+width:80px;
+height:10px;
+border-radius:50%;
+background:#2c3e50;
+transform:translateY(-40px)
+}
+.box:after{
+content:'';
+display:inline-block;
+position:absolute;
+width:80px;
+height:10px;
+border-radius:50%;
+background:#34984b;
+transform:translateY(40px)
+}
+</style>
+</head>
+<body>
+<template>
+<div class="ball"></div>
+</template>
+<div class="up"></div><div class="container">
+    <div class="box" draggable="true">
+        <span>box</span>
+    </div>
+</div>
+
+
+<audio id="drop"><source src="../ses/coin-drop.wav"></audio>
+<audio id="coin-fail"><source src="../ses/coinfail.wav"></audio>
+
+
+<script>
+let counter=0;
+    let template = document.querySelector("template");
+    let up = document.querySelector(".up");
+    let box = document.querySelector(".box");
+    let coinfail = document.querySelector("#coin-fail");
+    let offsetX;
+
+    box.addEventListener("dragstart", (e) => {
+        offsetX = e.clientX - box.getBoundingClientRect().left;
+    });
+
+    document.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        let containerWidth = document.querySelector(".container").clientWidth;
+        let newX = e.clientX - offsetX;
+        if (newX >= 0 && newX + box.clientWidth <= containerWidth) {
+            box.style.left = newX + "px";
+        }
+    });
+
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function createBall() {
+        setInterval(() => {
+            let left = Math.floor(Math.random() * 300);
+            let ball = template.content.cloneNode(true).firstElementChild;
+            ball.style.left = left + "px";
+            up.appendChild(ball);
+            dropBall(ball);
+        }, 800);
+    }
+
+    function dropBall(ball) {
+        let i = 0;
+        let interval = setInterval(() => {
+            i += 5;
+            ball.style.top = i + "px";
+            let ballLeft = parseInt(getComputedStyle(ball).left);
+            let boxLeft = parseInt(getComputedStyle(box).left);
+            let c = ballLeft - boxLeft;
+if(ball.style.top=="600px") {
+coinfail.play()
+setTimeout(()=>{
+final()
+window.location.reload()
+
+},500)
+
+}
+  if (ball.style.top == "400px" && c >= 0 && c <= 80){
+counter+=1              
+ destroyBall(ball);
+clearInterval(interval);
+let dropSound=document.querySelector("#drop")
+dropSound.currentTime=0
+dropSound.play()
+}
+            if (i >= window.innerHeight - ball.clientHeight) {
+  clearInterval(interval);
+                destroyBall(ball);
+            }
+        }, 20);
+    }
+
+    function destroyBall(ball) {
+        ball.remove();
+    }
+function final() {
+    return new Promise(resolve => {
+        alert("Oyun bitti, kazanılan coin sayısı " + counter);
+        resolve();
+    });
+}
+    createBall();
+</script></body>
+<html>

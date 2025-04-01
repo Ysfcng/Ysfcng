@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+@keyframes move{
+50%{
+transform:translate(-100px,-120px)
+}
+100%{
+transform:translate(0px,-120px)
+
+}
+}
+
+body{
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#222;
+}
+.container{
+position:relative;
+}
+.moon{
+width:150px;
+height:150px;
+border-radius:50%;
+box-shadow:0px 0px 100px rgba(255,255,255,0.2);
+background:white;
+}
+.cloud{
+width:160px;
+height:20px;
+border-radius:15px;
+background:lightgray;
+opacity:0.8
+}
+.flex{
+transform:translateY(-120px);
+display:flex;
+height:100px;
+animation:move 8s infinite ease-in-out;
+}
+.row{
+height:100px;
+display:flex;
+}
+.row:nth-child(1){
+align-items:center
+}
+.row:nth-child(2){
+flex-direction:column;
+justify-content:space-around;
+}
+audio{
+display:none
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="moon"></div>
+<div class="flex">
+<div class="row">
+<div class="cloud"></div>
+</div>
+<div class="row">
+<div class="cloud"></div>
+<div class="cloud"></div>
+</div>
+</div>
+<div>
+
+
+<audio autoplay loop controls>
+<source src="../ses/windSound.wav" type="audio/mpeg">
+tarayiciniz ses etiketlerini desteklemiyor
+</audio>
+
+<script>
+document.querySelector("audio").play()
+</script>
+</body>
+</html>

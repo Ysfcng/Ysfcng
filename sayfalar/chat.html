@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rolling Car Wheel</title>
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #87ceeb; /* Sky blue */
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #4caf50; /* Green ground */
+}
+
+.wheel {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border: 10px solid black;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ddd, #bbb);
+  overflow: hidden;
+}
+
+.spokes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: black;
+  transform-origin: center;
+  transform: rotate(0deg);
+}
+
+.spokes::before, .spokes::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: black;
+  top: -50%;
+  left: 50%;
+  transform-origin: center;
+}
+
+.spokes::before {
+  transform: rotate(90deg);
+}
+
+.spokes::after {
+  transform: rotate(45deg);
+}
+</style>
+
+</head>
+<body>
+  <div class="ground"></div>
+  <div class="wheel">
+    <div class="spokes"></div>
+  </div>
+  <script >
+const wheel = document.querySelector('.wheel');
+const spokes = document.querySelector('.spokes');
+
+let position = 0;
+let angle = 0;
+
+function animateWheel() {
+  position += 2; // Move the wheel to the right
+  angle -= 10;   // Rotate the spokes
+  
+  wheel.style.transform = `translateX(${position}px)`;
+  spokes.style.transform = `rotate(${angle}deg)`;
+  
+  if (position > window.innerWidth) {
+    position = -100; // Reset the position when the wheel leaves the screen
+  }
+  
+  requestAnimationFrame(animateWheel);
+}
+
+animateWheel();
+</script>
+</body>
+</html>

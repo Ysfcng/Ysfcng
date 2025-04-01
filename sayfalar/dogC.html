@@ -1,0 +1,247 @@
+<html>
+<head>
+<style>
+:root {
+  --primary: #8B4513;     /* Koyu kahverengi */
+  --secondary: #DEB887;   /* Açık kahverengi */
+  --accent: #CD853F;      /* Altın kahverengi */
+  --background: #2F4F4F;  /* Koyu yeşil-gri */
+  --detail: #696969;      /* Koyu gri */
+--body:rgb(66,84,88)
+}
+
+@keyframes confirm{
+50%{
+transform:translateY(140px);
+}
+100%{
+transform:translateY(110px)
+}
+
+}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+body{
+width:100%;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:var(--body)
+}
+.head{
+width:300px;
+height:300px;
+background:var(--secondary);
+border-radius:120px;
+position:relative;
+z-index:1;
+}
+.ears{
+padding:2px;
+width:100%;
+height:100px;
+display:flex;
+justify-content:space-between;
+align-items:end;
+transform:translateY(100px)
+}
+.ear {
+  width: 0; 
+  height: 0; 
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 250px solid var(--primary);
+  position: relative;
+}
+.ear-inner {
+  position: absolute;
+  left: -60px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 250px solid var(--accent);
+}
+.hair{
+width:110px;
+height:5px;
+background:var(--detail);
+margin-left:95px;
+}
+.eyes{
+margin-top:100px;
+display:flex;
+justify-content:center;
+gap:100px;
+}
+.eye{
+width:40px;
+height:40px;
+background:var(--primary);
+border-radius:50%;
+position:relative;
+}
+.eye:before{
+content:'';
+display:inline-block;
+width:10px;
+height:10px;
+position:absolute;
+background:white;
+border-radius:50%;
+top:10px;
+}
+.eye:first-child:before{
+left:20px;
+}
+.eye:nth-child(even):before{
+right:20px;
+}
+.jaw{
+width:180px;
+height:120px;
+background:white;
+border-radius:50%;
+margin-left:60px;
+transform:translateY(-15px);
+position:relative;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:start;
+padding-top:40px
+}
+.jaw:before{
+width:160px;
+height:90px;
+background:var(--secondary);
+content:'';
+display:inline-block;
+border-radius:50%;
+position:absolute;
+left:10px;
+bottom:0;
+}
+.nose{
+width:60px;
+height:40px;
+background:var(--primary);
+position:relative;
+border-radius:46% 54% 46% 54% / 41% 39% 61% 59% 
+}
+.nose:before{
+content:'';
+display:inline-block;
+width:10px;
+height:10px;
+border-radius:50%;
+background:white;
+position:absolute;
+top:10px;
+left:25px;
+z-index:2;
+}
+.line{
+width:10px;
+height:10px;
+background:var(--primary);
+position:relative;
+z-index:1
+}
+.mouth{
+width:10px:
+height:10px;
+background:var(--primary);
+position:relative
+}
+.mouth:before,.mouth:after{
+width:30px;
+height:30px;
+content:'';
+display:inline-block;
+border-radius:50%;
+border-bottom:5px solid var(--primary);
+position:absolute;
+top:-20px
+}
+.mouth:before{
+left:-30px;
+transform:rotate(-20deg)
+}
+.mouth:after{
+transform:rotate(20deg)
+}
+.body{
+width:300px;
+height:180px;
+background:var(--accent);
+display:flex;
+align-items:end;
+}
+.animate{
+transform:translateY(110px);
+animation:confirm 2s infinite;
+position:relative;
+z-index:1;
+}
+.paws{
+width:100%;
+height:80px;
+display:flex;
+justify-content:space-between;
+}
+.paw{
+width:80px;
+height:80px;
+background:var(--secondary);
+border-top-left-radius:35px;
+border-top-right-radius:35px;
+position:relative;
+}
+.paw:before,.paw:after{
+content:'';
+display:inline-block;
+width:3px;
+height:78px;
+position:absolute;
+bottom:0;
+background:var(--detail);
+}
+.paw:before{left:26px;}
+.paw:after{right:26px;}
+</style>
+</head>
+
+<body> 
+<div class="dog"> 
+<div class="animate">
+ <div class="ears">
+   <div class="ear"><div class="ear-inner"></div></div> 
+   <div class="ear"><div class="ear-inner"></div></div> 
+  </div> 
+<div class="head">
+<div class="hair"></div>
+<div class="eyes"><div class="eye"></div><div class="eye"></div></div>
+<div class="jaw">
+<div class="nose"></div>
+<div class="line"></div>
+<div class="mouth"></div>
+</div>
+
+</div>
+</div>
+<div class="body">
+<div class="paws">
+<div class="paw"></div>
+<div class="paw"></div>
+</div>
+</div>
+
+</div>
+</body>
+</html>

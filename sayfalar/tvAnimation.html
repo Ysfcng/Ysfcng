@@ -1,0 +1,119 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+body{
+background:linear-gradient(to right,#2c3e50,#4ca1af);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.tv{
+width:150px;
+height:150px;
+display:flex;
+flex-direction:column;
+justify-items:end;
+background:#333;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+box-shadow:0px 4px 8px rgba(0,0,0,0.2);
+}
+.up{
+height:100%;
+width:90%;
+margin-left:9px;
+}
+.up .inner{
+width:130px;
+height:120px;
+border:2px solid #ddd;
+position:relative;
+margin-top:10px;
+background:#000
+}
+img{
+width:30px;
+height:30px;
+position:absolute;
+}
+.down{
+height:20px;
+width:100%;
+background:#555;
+gap:2px;
+display:flex;
+justify-content:end;
+align-items:center;
+}
+.circle1,.circle2{
+width:8px;
+height:8px;
+background:#ccc;
+box-shadow:0px 0px 5px #fff;
+border-radius:50%
+}
+.circle3{
+width:10px;
+height:10px;
+background:#ff3333;
+border-radius:50%;
+margin-right:10px;
+box-shadow:0px 0px 8px #ff0000
+}
+</style>
+</head>
+<body>
+<audio class="audio" >
+<source src="../ses/crash.wav" type="audio/ogg">
+</audio>
+<div class="tv">
+<div class="up">
+<div class="inner">
+<img src="../resim/dvdLogo.png"/>
+</div>
+</div>
+<div class="down">
+<div class="circle1"></div>
+<div class="circle2"></div>
+<div class="circle3"></div>
+
+</div>
+</div>
+
+
+<script>
+let img=document.querySelector("img")
+
+var audio = new Audio('../ses/crash.wav');
+img.style.left='0px'
+img.style.top='50px'
+let countX=1;
+let countY=1;
+
+
+setInterval(()=>{
+if(parseInt(img.style.left)<=0){
+countX=1
+audio.play()
+}
+if(parseInt(img.style.left)>=100){
+countX=-1
+audio.play()
+}
+if(parseInt(img.style.top)<=0){
+countY=1
+audio.play()
+}
+if(parseInt(img.style.top)>=90){
+countY=-1
+audio.play()
+}
+img.style.left=parseInt(img.style.left)+countX+"px"
+img.style.top=parseInt(img.style.top)+countY+"px"
+
+
+},10)
+</script>
+</body>
+</html>

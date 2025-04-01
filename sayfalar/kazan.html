@@ -1,0 +1,141 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing:border-box;
+}
+body{
+height:100vh;
+overflow:hidden;
+background:linear-gradient(to bottom,#1e3c72,#2a5298)
+}
+.up{
+padding-top:30px;
+height:50px;
+background:yellow;
+}
+.bottom{
+    width:100%;
+    height:50px;
+    background:yellow;
+    position:fixed;
+    bottom:0px;
+}
+
+.ball{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:brown;
+    position:absolute;
+    z-index:1;
+    top:-20px;
+    left:40px;
+box-shadow:0 0 10px rgba(255,0,0,0.8)
+}
+.skater{
+    width:100px;
+    height:20px;
+    border-radius:10px;
+    background:dodgerblue;
+    position:absolute;
+}
+</style>
+</head>
+<body>
+
+<div class="up">
+        <button class="skater" onmousemove="moveSkater(this)"></button>
+</div>
+<audio >
+<source src="../ses/ball-hit.wav">
+</audio>
+<div class="bottom">
+    <div class="ball"></div>
+    <button class="skater" onmousemove="moveSkater(this)"></button>
+</div>
+
+<script>
+let audio=document.querySelector("audio")
+//topu hareket ettir
+class Ball {
+  constructor(left, top) {
+    this.top  = top;
+    this.left = left;
+  }
+}
+Ball.left = 40;
+Ball.top = -20;
+
+let ix = 5, iy = -5;
+function getSkaterPosition(i){
+let skater=document.getElementsByClassName("skater")[i]
+return skater.getBoundingClientRect().left
+}
+function moveBall() {
+    setInterval(() => {
+        if (Ball.left >= window.innerWidth - 20) { 
+audio.currentTime=0;
+audio.play()
+ix = -5; }
+        if (Ball.left <= 0) { 
+ix = 5;
+audio.currentTime=0;
+audio.play()
+ }
+        if (Ball.top == 0) { 
+alert("first player winned")
+window.location.reload()
+ }
+if (Ball.top == -20&&Ball.left>=getSkaterPosition(1)&&Ball.left-100<=getSkaterPosition(1)) {
+iy = -5;
+audio.currentTime=0;
+audio.play() }
+        if (Ball.top <= -1 * (window.innerHeight - 50)) { 
+alert("second player winned")
+window.location.reload()
+}
+ if (Ball.top <= -1 * (window.innerHeight-100 )&&Ball.left>=getSkaterPosition(0)&&Ball.left-100<=getSkaterPosition(0)) { 
+iy = 5; 
+audio.currentTime=0;
+audio.play()
+}
+
+        Ball.top += iy;
+        Ball.left += ix;
+
+    }, 50);
+}
+
+function moveSkater(th) {
+    let skater = th
+
+    skater.addEventListener("mousemove", (e) => {
+        if (Ball.top == -20 && (getSkaterPosition(0) < Ball.left||getSkaterPosition(1) < Ball.left) && (getSkaterPosition(0)+ 100 >= Ball.left||getSkaterPosition(1)+100>Ball.left)) {
+            Ball.left = e.clientX;
+        }
+        skater.style.left = e.clientX - 50+"px";
+    }, 50);
+}
+
+function updateBall() {
+    setInterval(() => {
+        let ball = document.querySelector(".ball");
+        ball.style.top = Ball.top + "px";
+        ball.style.left = Ball.left + "px";
+    }, 50);
+}
+
+
+
+
+
+updateBall();
+moveBall();
+moveSkater();
+</script>
+</body>
+</html>

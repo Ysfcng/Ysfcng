@@ -1,0 +1,116 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+@keyframes fadeIn{
+100%{
+opacity:1;
+}
+}
+@keyframes floatUp{
+0%{
+transform:translateY(20px);
+}
+50%{
+transform :translateY(0px)
+}
+100%{
+transform:translateY(20px)
+}
+}
+*{
+margin:0;
+padding:0px;
+box-sizing:border-box;
+
+}
+body{
+background:#222;
+}
+body,.vant{
+display:flex;
+align-items:center;
+justify-content:center
+}
+.vant{
+flex-direction:column;
+
+}
+.up{
+width:150px;
+height:150px;
+background:black;
+border:2px solid white;
+border-radius:50%;
+animation :floatUp 2s infinite ease-in-out;
+position:relative;
+z-index:1
+}
+.up img{
+width:100%;
+height:100%;
+border-radius:50%;
+opacity:0;
+animation:fadeIn 2s forwards;
+animation-delay:1s;
+}
+.middle{
+width:20px;
+height:60px;
+background:rgba(220,220,220,0.9);
+transform:translateY(20px);
+position:relative
+}
+.middle:after{
+display:inline-block;
+content:'';
+width:20px;
+height:6px;
+background:white;
+position:absolute;
+bottom:-3px;
+border-radius:50%;
+}
+.middle:before{
+display:inline-block;
+content:'';
+width:20px;
+height:6px;
+background:white;
+position:absolute;
+top:-3px;
+border-radius:50%;
+z-index:2
+}
+.down{
+width:100px;
+height:40px;
+background:rgba(100,100,100,0.9);
+border-radius:50%;
+box-shadow:0px 4px 10px rgba(0,0,0,0.5);
+}
+audio{
+display:none;
+}
+</style>
+</head>
+<body>
+<audio controls autoplay>
+<source src="../ses/scary-music.wav">
+</audio>
+<div class="container">
+<div class="vant">
+<div class="up">
+<img src="../resim/scary.jpeg"/>
+</div>
+<div class="middle"></div>
+<div class="down"></div>
+</div>
+</div>
+
+<script>
+let audio=document.querySelector("audio")
+audio.play()
+</script>
+</body>
+</html>
