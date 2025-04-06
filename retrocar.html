@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+@keyframes moveDown{
+0%{
+top:0px
+}
+100%{
+top:1080px;
+}
+}
+*{
+padding:0px;
+margin:0px;
+box-sizing:border-box;
+}
+body{
+width:100%;
+height:100vh;
+position:relative;
+overflow:hidden;
+}
+.outer{
+width:360px;
+height:690px;
+position:relative;
+background:red;
+display:flex;
+justify-content:center;
+gap:5px;
+}
+.outer div.left,.outer div.middle,.outer div.right{
+width:110px;
+height:200px;
+background:gray;
+border:1px solid black;
+display:inline-block;
+position:absolute;
+animation:moveDown linear 1s infinite;
+}
+.outer div:nth-child(1){
+left:10px;
+}
+.outer div:nth-child(2){
+left:125px;
+}
+.outer div:nth-child(3){
+left:240px;
+}
+.buttons{
+position:fixed;
+width:100%;
+height:30px;
+background:yellow;
+bottom:0px;
+}
+</style>
+</head>
+
+<body>
+<div class="outer">
+<div class="left"></div>
+<div class="middle"></div>
+<div class="right"></div>
+
+<div class="buttons">
+<button class="left"><=<button>
+<button class="right">=><button>
+
+</div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+let outer=document.querySelector(".outer")
+setGamePlatformPos(outer)
+
+
+})
+
+
+function setGamePlatformPos(div){
+div.style.left=((window.innerWidth-360)/2)+"px"
+div.style.top=((window.innerHeight-980)/2)+"px"
+
+
+}
+</script>
+</body>
+</html>
