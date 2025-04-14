@@ -92,6 +92,10 @@
       "id": 18,
       "fileName": "retrocar.html",
       "iconLink": "https://example.com/icon"
+    },{
+      "id": 19,
+      "fileName": "snowRain.html",
+      "iconLink": "https://example.com/icon"
     }
   ]
 }
