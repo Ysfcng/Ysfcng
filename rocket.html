@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+.outer {
+  width: 360px;
+  height: 590px;
+  position: relative;
+}
+.rocket {
+  width: 60px;
+  height: 100px;
+  position: absolute;
+  top: 350px;
+  left: 150px;
+}
+.rocket img {
+  width: 20px;
+  height: 100px;
+  object-fit: cover;
+}
+.top {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.top img {
+  width: 50px;
+}
+.buttons {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+}
+.buttons button {
+  width: 80px;
+  height: 100%;
+  background: gray;
+}
+[class^="danger"] {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+[class^="danger"] img {
+  width: 50px;
+}
+</style>
+</head>
+<body>
+<div class="body">
+<audio  autoplay loop>
+<source src="./ses/Turkish Kebab.mp3">
+</audio >
+<div class="outer">
+  <div class="top">
+    <template>
+      <div class="danger1"><img src="./resim/asteroid.png"/></div>
+      <div class="danger2"><img src="./resim/asteroid.png"/></div>
+      <div class="danger3"><img src="./resim/asteroid.png"/></div>
+      <div class="danger4"><img src="./resim/asteroid.png"/></div>
+      <div class="danger5"><img src="./resim/asteroid.png"/></div>
+      <div class="danger6"><img src="./resim/asteroid.png"/></div>
+      <div class="danger7"><img src="./resim/asteroid.png"/></div>
+    </template>
+  </div>
+
+  <div class="rocket">
+    <img src="./resim/missile.jpeg"/>
+  </div>
+
+  <div class="buttons">
+    <button class="left" onclick="moveLeft()"><=</button>
+    <button class="stop" onclick="stop()">=</button>
+    <button class="right" onclick="moveRight()">=></button>
+  </div>
+</div>
+
+<script>
+let skor = 0;
+let reloaded = false;
+let game;
+let stopped = false;
+
+function moveLeft() {
+  let roket = document.querySelector(".rocket");
+  let left = parseInt(getComputedStyle(roket).left);
+  if (left >= 20) roket.style.left = (left - 20) + "px";
+}
+
+function moveRight() {
+  let roket = document.querySelector(".rocket");
+  let left = parseInt(getComputedStyle(roket).left);
+  if (left <= 300) roket.style.left = (left + 20) + "px";
+}
+
+function addDanger() {
+  let rand = Math.floor(Math.random() * 6) + 1;
+  for (let i = 0; i < rand; i++) {
+    let moved = Math.floor(Math.random() * 7) + 1;
+    let temp = document.querySelector("template").content.cloneNode(true);
+    let danger = temp.querySelector(".danger" + moved);
+    danger.style.position = "absolute";
+    danger.style.left = ((moved-1) * 50) + "px";
+    danger.style.top = "0px";
+    document.querySelector(".outer").appendChild(danger);
+    moveDanger(danger);
+  }
+}
+
+function moveDanger(danger) {
+  let rocket = document.querySelector(".rocket");
+
+  let move = setInterval(() => {
+    let top = parseInt(getComputedStyle(danger).top);
+    let left = danger.getBoundingClientRect().left;
+    let rocketLeft = rocket.getBoundingClientRect().left;
+
+    if (top >= 300 && top <= 400) {
+      if (left>=rocketLeft&&left-rocketLeft<=20&& !reloaded) {
+        alert("Oyun bitti, skor: " + skor);
+        reloaded = true;
+        window.location.reload();
+      }
+else if (left<=rocketLeft&&rocketLeft-left<=50&&!reloaded){
+        alert("Oyun bitti, skor: " + skor);
+        reloaded = true;
+        window.location.reload();
+      }
+    }
+
+    danger.style.top = (top + 5) + "px";
+  }, 50);
+
+  setTimeout(() => {
+    clearInterval(move);
+    danger.remove();
+    skor += 1;
+  }, 5000);
+}
+
+function stop() {
+  if (stopped) {
+    game = setInterval(addDanger, 1500);
+    stopped = false;
+  } else {
+    clearInterval(game);
+    stopped = true;
+  }
+}
+
+game = setInterval(addDanger, 1500);
+document.addEventListener("DOMContentLoaded",()=>{
+let audio=document.querySelector("audio")
+audio.play()
+
+})
+</script>
+
+</body>
+</html>
