@@ -1,0 +1,177 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+*{
+padding:0px;
+margin:0px;
+box-sizing:border-box;
+}
+body{
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-content:center;
+}
+
+.outer{
+width:360px;
+height:560px;
+display:flex;
+justify-content:center;
+align-items:center;
+background:red
+}
+
+.container{
+position:relative;
+background:yellow;
+width:100%;
+height:100px;
+}
+
+.ball{
+width:20px;
+height:20px;
+background:#222;
+border-radius:50%;
+position:absolute;
+z-index:1;
+}
+[class^="plate"]{
+position:absolute;
+z-index:2;
+width:100px;
+height:100px;
+border-radius:50%;
+background:green;
+transition:0.5s all ease;
+}
+.plate1{
+left:0px;
+background:red;
+}
+.plate2{
+left:120px;
+background:blue;
+
+}
+.plate3{
+left:240px;
+background:green;
+
+}
+</style>
+</head>
+<body>
+<div class="outer">
+
+<div class="container">
+
+<div class="ball"></div>
+
+<div class="plate1"></div>
+<div class="plate2"></div>
+<div class="plate3"></div>
+
+
+</div>
+
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+choser()
+mixer()
+
+})
+
+function choser(){
+let rand=Math.floor(Math.random()*3)
+let plate=document.querySelector(".plate"+rand)
+let ball=document.querySelector(".ball")
+
+let top=plate.getBoundingClientRect().top
+let left=plate.getBoundingClientRect().left
+
+ball.style.top=40+"px"
+ball.style.left=left+40+"px"
+alert(left)
+}
+
+
+function mixer(){
+let arr=[1,2,3]
+
+let first=arr[Math.floor(Math.random()*3) ]
+let temp=arr.filter(x=>x==first)
+let second=temp[Math.floor(Math.random()*2) ]
+
+let firstPlate=document.querySelector(".plate"+first)
+let secondPlate=document.querySelector(".plate"+second)
+
+let left1=firstPlate.getBoundingClientRect().left
+let left2=secondPlate.getBoundingClientRect().left
+
+
+firstPlate.style.left=left2+"px"
+secondPlate.style.left=left1+"px"
+
+}
+//choser first load dom
+//mixer every time used
+//checker every time game ended
+let count=0;
+
+
+let interval=setInterval(()=>{
+if(count<10){
+count+=1
+mixer();
+}else{
+clearInterval(interval)
+}
+
+},500)
+
+
+
+function checker(div){
+if(count<10)
+return
+
+let chosed=div;
+let ball=document.querySelector(".ball")
+
+let chosedLeft=chosed.getBoundingClientRect().left
+let ballLeft=chosed.getBoundingClientRect().left
+if(ballLeft-chosedLeft==50){
+alert("dogru secim")
+}
+else{
+alert("yanlis secim")
+}
+
+
+
+
+count=0
+choser();
+
+let interval=setInterval(()=>{
+if(count<10){
+count+=1
+mixer();
+}else{
+clearInterval(interval)
+}
+
+},500)
+
+}
+
+</script>
+</body>
+</html>

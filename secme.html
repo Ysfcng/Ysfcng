@@ -1,0 +1,186 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+background: #1e1e2f;
+
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+overflow:hidden;
+}
+
+.outer {
+    width: 360px;
+    height: 630px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    background: yellow;
+    width: 100%;
+    height: 100px;
+background: #2c2c3a;
+box-shadow: 0 0 10px rgba(0,0,0,0.5);}
+
+.ball {
+    width: 20px;
+    height: 20px;
+    background: yellow;
+    border-radius: 50%;
+    position: absolute;
+    top: -100px;
+    left: 0px;
+    z-index: 1;
+    transition: all 0.5s ease; /* <-- burası eklendi */
+}
+[class^="plate"] {
+    position: absolute;
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: green;
+    transition: 0.5s all ease;
+}
+.plate1 {
+    left: 0px;
+    background: red;
+}
+.plate2 {
+    left: 120px;
+    background: blue;
+}
+.plate3 {
+    left: 240px;
+    background: green;
+}
+</style>
+</head>
+<body>
+<div class="outer">
+<audio  loop>
+<source src="./ses/Turkish Kebab.mp3">
+</audio >
+    <div class="container">
+        <div class="ball"></div>
+<div class="plate1" onclick="checker(this)"></div>
+        <div class="plate2"onclick="checker(this)"></div>
+        <div class="plate3" onclick="checker(this)"></div>
+    </div>
+</div>
+
+<script>
+let count = 0;
+let chosenIndex = 1;
+document.addEventListener("DOMContentLoaded", () => {
+let audio=document.querySelector("audio")
+audio.play()
+
+    choser();
+	setTimeout(()=>{
+    startMixer();
+    addClickEvents();
+
+},5000)
+});
+
+let ballpPlate=""
+
+function choser() {
+    chosenIndex = Math.floor(Math.random() * 3) + 1;
+    let plate = document.querySelector(".plate" + chosenIndex);
+    let ball = document.querySelector(".ball");
+
+    let left = plate.offsetLeft + 40;
+    let top = plate.offsetTop + 40;
+
+ball.style.top="-100px"
+ball.style.left="160px"
+
+
+    // Önce topu başlangıç konumuna koy (aniden)
+let setter=setInterval(()=>{
+if(parseInt(ball.style.top)>=top&&parseInt(ball.style.left)>=left){
+clearInterval(setter)
+}
+if(parseInt(ball.style.top)<top){
+ball.style.top=parseInt(ball.style.top)+5+"px"
+}
+if(parseInt(ball.style.left)<left){
+ball.style.left=parseInt(ball.style.left)+5+"px"
+}
+},10)
+    
+ballPlate=plate
+}
+function mixer() {
+    let arr = [1, 2, 3];
+    let first = arr[Math.floor(Math.random() * 3)];
+    let others = arr.filter(x => x !== first);
+    let second = others[Math.floor(Math.random() * 2)];
+    let ball=document.querySelector(".ball")
+    
+    let firstPlate = document.querySelector(".plate" + first);
+    let secondPlate = document.querySelector(".plate" + second);
+
+    let left1 = firstPlate.offsetLeft;
+    let left2 = secondPlate.offsetLeft;
+
+    firstPlate.style.left = left2 + "px";
+    secondPlate.style.left = left1 + "px";
+if(ballPlate==firstPlate){
+ball.style.left=left2+40+"px"
+}
+if(ballPlate==secondPlate){
+ball.style.left=left1+40+"px"
+
+}
+}
+
+function startMixer() {
+    count = 0;
+    let interval = setInterval(() => {
+        if (count < 10) {
+            count++;
+            mixer();
+        } else {
+            clearInterval(interval);
+        }
+    }, 500);
+}
+
+function checker(div) {
+    if (count < 10) return;
+
+    let chosedLeft = div.offsetLeft;
+    let ballLeft = parseInt(document.querySelector(".ball").style.left);
+    if (Math.abs(ballLeft - (chosedLeft + 40)) < 10) {
+        alert("Doğru seçim!");
+    } else {
+        alert("Yanlış seçim!");
+    }
+
+    choser();
+    startMixer();
+}
+
+function addClickEvents() {
+    document.querySelectorAll('[class^="plate"]').forEach(plate => {
+        plate.addEventListener("click", () => checker(plate));
+    });
+}
+</script>
+</body>
+</html>
