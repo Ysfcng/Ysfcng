@@ -1,0 +1,216 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+:root{
+--white:white;
+--green:green;
+--gray:gray;
+--black:black;
+}
+
+*{
+margin:0px;
+padding:0px;
+box-sizing:border-box;
+}
+body{
+align-items:center;
+overflow:hidden;
+width:100%;
+height:100vh;
+background:#222;
+display:flex;
+align-content:center;
+justify-content:center;
+}
+.outer{
+border-radius:10px;
+display:flex;
+align-content:center;
+align-items:center;
+justify-content:center;
+width:350px;
+height:560px;
+background:yellow;
+}
+.quiz{
+overflow:hidden;
+display:flex;
+flex-direction:column;
+border-radius:10px;
+width:100%;
+height:100%;
+background:red;
+}
+.quiz .header{
+padding:25px;
+text-align:center;
+font-size:30px;
+color:var(--white);
+background:var(--green);
+}
+.quiz .body{
+flex-grow:1;
+background:var(--white);
+padding:20px;
+}
+.quiz .body .answer{
+background:var(--gray);
+margin-bottom:5px;
+width:100%;
+height:40px;
+padding-left:20px;
+border-radius:10px;
+color:var(--black);
+text-transform:uppercase;
+display:flex;
+align-items:center;
+}
+.quiz .body .answer.active{
+background:yellow;
+}
+.quiz .body .answer.true{
+background:green;
+}
+.quiz .body .answer.false{
+background:red
+}
+
+.quiz .footer{
+width:100%;
+height:80px;
+background:white;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding-bottom:10px;
+padding-left:20px;
+padding-right:20px;
+}
+.quiz .footer button{
+width:100%;
+padding-top:10px;
+padding-bottom:10px;
+border-radius:20px;
+background:var(--green);
+border:0px;
+margin-bottom:10px;
+}
+.circle-blue{
+width:10px;
+height:10px;
+background:var(--green);
+border-radius:50%;
+display:inline-block;
+margin-right:3px;
+}
+</style>
+
+</head>
+<body>
+<audio id="failSound" >
+  <source src="../ses/fail.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+<audio id="successSound">
+  <source src="../ses/success.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+<div class="outer">
+<div class="quiz">
+
+<div class="header">
+<span class="question">What is the capital of france</span>
+</div>
+<div class="body">
+<div class="answer" id="A" onclick="arrPush(this,'A')">japan</div>
+<div class="answer"id="B" onclick="arrPush(this,'B')">japan</div>
+<div class="answer" id="C" onclick="arrPush(this,'C')">japan</div>
+<div class="answer" id="D" onclick="arrPush(this,'D')">japan</div>
+</div>
+<div class="footer">
+<button class="submit" onclick="check()">Submit</button>
+<div><span class="circle-blue"></span>Live
+</div>
+</div>
+</div>
+
+</div>
+<script>
+let arr=[]
+let answer="japan"
+function arrPush(as,letter){
+let answer=document.querySelectorAll(".answer")
+answer.forEach(x=>{
+x.classList.remove("active")
+})
+as.classList.add("active")
+arr.pop()
+arr.push(letter)
+}
+function check(){
+if(arr[0]==answer){
+let success=document.querySelector("#successSound")
+success.play()
+}
+else{
+document.querySelector("#"+arr[0]).classList.add("false")
+let fail=document.querySelector("#failSound")
+fail.play()
+}
+document.querySelector("#"+answer).classList.add("true")
+
+setTimeout(()=>{
+makeQuestion(json)
+let answer=document.querySelectorAll(".answer")
+answer.forEach(x=>{
+x.classList.remove("active","false","true")
+})
+},500)
+
+}
+
+let json
+fetch('./constants/genel_kultur_60_soru.json', {
+    method: 'GET',
+})
+   .then(response => response.json())
+   .then(response =>{ 
+json=response
+makeQuestion(response)})
+.catch((e)=>console.log(e))
+
+
+let answerA, answerB, answerC,answerD,question
+function makeQuestion(json){
+let rand=Math.floor(Math.random()*60)
+json.map((x,y)=>{
+
+if(y==rand){
+question=(x["soru"])
+trueAnswer=(x["soru"])
+answerA=x["secenekler"]["A"]
+answerB=x["secenekler"]["B"]
+answerC=x["secenekler"]["C"]
+answerD=x["secenekler"]["D"]
+answer=x["dogru"]
+}
+
+
+let divAnswer,divQuestion
+divAnswer=document.getElementsByClassName("answer")
+divQuestion=document.getElementsByClassName("question")
+divQuestion[0].innerText=question
+divAnswer[0].innerText=answerA
+divAnswer[1].innerText=answerB
+divAnswer[2].innerText=answerC
+divAnswer[3].innerText=answerD
+})
+
+
+}
+
+</script>
+</body>
+</html>

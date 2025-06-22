@@ -1,0 +1,722 @@
+[
+    {
+        "id": 1,
+        "soru": "Türkiye’nin başkenti neresidir?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "İstanbul",
+            "B": "Ankara",
+            "C": "İzmir",
+            "D": "Bursa"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 2,
+        "soru": "En büyük okyanus hangisidir?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Atlas Okyanusu",
+            "B": "Hint Okyanusu",
+            "C": "Pasifik Okyanusu",
+            "D": "Arktik Okyanusu"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 3,
+        "soru": "Ay’ın etrafında döndüğü gezegen hangisidir?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Venüs",
+            "B": "Mars",
+            "C": "Dünya",
+            "D": "Jüpiter"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 4,
+        "soru": "Türkiye’nin para birimi nedir?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Euro",
+            "B": "Lira",
+            "C": "Dolar",
+            "D": "Sterlin"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 5,
+        "soru": "Dünya kaç kıtadan oluşur?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "5",
+            "B": "6",
+            "C": "7",
+            "D": "8"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 6,
+        "soru": "En uzun nehir hangisidir?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Amazon",
+            "B": "Nil",
+            "C": "Mississippi",
+            "D": "Yangtze"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 7,
+        "soru": "Atatürk’ün soyadı nedir?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Soykan",
+            "B": "Türkkan",
+            "C": "Atatürk",
+            "D": "Kemal"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 8,
+        "soru": "En küçük asal sayı kaçtır?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "0",
+            "B": "1",
+            "C": "2",
+            "D": "3"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 9,
+        "soru": "Güneş doğudan mı batıdan mı doğar?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Doğudan",
+            "B": "Batıdan",
+            "C": "Kuzeyden",
+            "D": "Güneyden"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 10,
+        "soru": "Türkiye'nin en kalabalık ili hangisidir?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Ankara",
+            "B": "İstanbul",
+            "C": "İzmir",
+            "D": "Bursa"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 11,
+        "soru": "Galatasaray hangi spor dalında ünlüdür?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Basketbol",
+            "B": "Voleybol",
+            "C": "Futbol",
+            "D": "Tenis"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 12,
+        "soru": "Türk bayrağında hangi renkler vardır?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Kırmızı ve beyaz",
+            "B": "Siyah ve kırmızı",
+            "C": "Yeşil ve beyaz",
+            "D": "Sarı ve kırmızı"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 13,
+        "soru": "Paris hangi ülkenin başkentidir?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Almanya",
+            "B": "İtalya",
+            "C": "Fransa",
+            "D": "İspanya"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 14,
+        "soru": "İnsan vücudunda kaç bacak vardır?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 15,
+        "soru": "Hafta kaç günden oluşur?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "5",
+            "B": "6",
+            "C": "7",
+            "D": "8"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 16,
+        "soru": "Elmanın rengi ne olabilir?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Sarı",
+            "B": "Yeşil",
+            "C": "Kırmızı",
+            "D": "Hepsi"
+        },
+        "dogru": "D"
+    },
+    {
+        "id": 17,
+        "soru": "En bilinen arama motoru hangisidir?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Yandex",
+            "B": "Bing",
+            "C": "Google",
+            "D": "Yahoo"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 18,
+        "soru": "Su kaç harften oluşur?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 19,
+        "soru": "Türkiye Cumhuriyeti kaç yılında kuruldu?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "1920",
+            "B": "1921",
+            "C": "1923",
+            "D": "1925"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 20,
+        "soru": "Dünya'nın uydusu hangisidir?",
+        "seviye": "kolay",
+        "secenekler": {
+            "A": "Güneş",
+            "B": "Mars",
+            "C": "Ay",
+            "D": "Venüs"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 21,
+        "soru": "Osmanlı Devleti’nin kurucusu kimdir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Yavuz Sultan Selim",
+            "B": "Fatih Sultan Mehmet",
+            "C": "Orhan Gazi",
+            "D": "Osman Gazi"
+        },
+        "dogru": "D"
+    },
+    {
+        "id": 22,
+        "soru": "İngiltere'nin resmi dili nedir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Fransızca",
+            "B": "Almanca",
+            "C": "İngilizce",
+            "D": "İspanyolca"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 23,
+        "soru": "Amazon Ormanı hangi kıtadadır?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Asya",
+            "B": "Afrika",
+            "C": "Güney Amerika",
+            "D": "Avrupa"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 24,
+        "soru": "Türkiye’nin en uzun nehri hangisidir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Kızılırmak",
+            "B": "Fırat",
+            "C": "Dicle",
+            "D": "Sakarya"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 25,
+        "soru": "Roma İmparatorluğu’nun başkenti neresiydi?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Atina",
+            "B": "İstanbul",
+            "C": "Roma",
+            "D": "Londra"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 26,
+        "soru": "Ayasofya İstanbul’da hangi ilçededir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Beyoğlu",
+            "B": "Fatih",
+            "C": "Kadıköy",
+            "D": "Üsküdar"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 27,
+        "soru": "Mozart hangi sanat dalında ünlenmiştir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Resim",
+            "B": "Heykel",
+            "C": "Müzik",
+            "D": "Tiyatro"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 28,
+        "soru": "Leonardo da Vinci’nin en ünlü tablosu nedir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Son Akşam Yemeği",
+            "B": "Mona Lisa",
+            "C": "Gece Devriyesi",
+            "D": "Yıldızlı Gece"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 29,
+        "soru": "Kızıldeniz ile Akdeniz’i bağlayan kanalın adı nedir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Panama",
+            "B": "Süveyş",
+            "C": "Korint",
+            "D": "Manş"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 30,
+        "soru": "Dünya Sağlık Örgütü’nün İngilizce kısaltması nedir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "UN",
+            "B": "WHO",
+            "C": "WTO",
+            "D": "IMF"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 31,
+        "soru": "Japonya’nın en büyük adası hangisidir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Kyushu",
+            "B": "Hokkaido",
+            "C": "Shikoku",
+            "D": "Honshu"
+        },
+        "dogru": "D"
+    },
+    {
+        "id": 32,
+        "soru": "Alp Dağları hangi kıtadadır?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Asya",
+            "B": "Avrupa",
+            "C": "Afrika",
+            "D": "Amerika"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 33,
+        "soru": "Türkiye’nin ilk kadın pilotu kimdir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Sabiha Gökçen",
+            "B": "Afet İnan",
+            "C": "Halide Edip",
+            "D": "Feriha Sanerk"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 34,
+        "soru": "Soğuk Savaş döneminde iki büyük ülke hangileriydi?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "ABD ve SSCB",
+            "B": "Fransa ve İngiltere",
+            "C": "Çin ve Hindistan",
+            "D": "Almanya ve İtalya"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 35,
+        "soru": "Halikarnas Balıkçısı olarak bilinen yazar kimdir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Cevat Şakir Kabaağaçlı",
+            "B": "Yaşar Kemal",
+            "C": "Orhan Veli",
+            "D": "Nazım Hikmet"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 36,
+        "soru": "“Divanü Lügati’t Türk” adlı eseri kim yazmıştır?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Kaşgarlı Mahmud",
+            "B": "Yusuf Has Hacib",
+            "C": "Farabi",
+            "D": "Ali Kuşçu"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 37,
+        "soru": "Kanada’nın resmi para birimi nedir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Dolar",
+            "B": "Euro",
+            "C": "Lira",
+            "D": "Frank"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 38,
+        "soru": "Dünya Kupası’nı en çok kazanan ülke hangisidir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Almanya",
+            "B": "İtalya",
+            "C": "Brezilya",
+            "D": "Arjantin"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 39,
+        "soru": "Mimar Sinan’ın ustalık eseri olarak bilinen cami hangisidir?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Süleymaniye",
+            "B": "Selimiye",
+            "C": "Şehzade",
+            "D": "Fatih Camii"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 40,
+        "soru": "“H2O” kimyasal formülü hangi maddeyi temsil eder?",
+        "seviye": "orta",
+        "secenekler": {
+            "A": "Hidrojen",
+            "B": "Oksijen",
+            "C": "Su",
+            "D": "Tuz"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 41,
+        "soru": "Antarktika’da bulunan tek aktif yanardağ hangisidir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Etna",
+            "B": "Erebus",
+            "C": "Krakatoa",
+            "D": "Fuji"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 42,
+        "soru": "Nobel Edebiyat Ödülü’nü kazanan ilk Türk yazar kimdir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Orhan Pamuk",
+            "B": "Yaşar Kemal",
+            "C": "Nazım Hikmet",
+            "D": "Ahmet Hamdi Tanpınar"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 43,
+        "soru": "Machu Picchu hangi eski medeniyete aittir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Maya",
+            "B": "İnka",
+            "C": "Aztek",
+            "D": "Roma"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 44,
+        "soru": "Uluslararası Uzay İstasyonu’nun kısaltması nedir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "ISS",
+            "B": "NASA",
+            "C": "ESA",
+            "D": "IUS"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 45,
+        "soru": "“Sefiller” romanının yazarı kimdir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Tolstoy",
+            "B": "Hugo",
+            "C": "Balzac",
+            "D": "Dumas"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 46,
+        "soru": "Türkiye'nin ilk kadın başbakanı kimdir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Tansu Çiller",
+            "B": "Sibel Siber",
+            "C": "Meral Akşener",
+            "D": "Canan Arıtman"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 47,
+        "soru": "Büyük Patlama teorisiyle ilgili çalışmalar yapan ünlü fizikçi kimdir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Stephen Hawking",
+            "B": "Newton",
+            "C": "Einstein",
+            "D": "Feynman"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 48,
+        "soru": "2020 Yaz Olimpiyatları hangi şehirde düzenlendi?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Londra",
+            "B": "Rio",
+            "C": "Tokyo",
+            "D": "Paris"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 49,
+        "soru": "İnsan DNA’sında kaç kromozom bulunur?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "23",
+            "B": "46",
+            "C": "48",
+            "D": "44"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 50,
+        "soru": "Türkiye’de ilk nüfus sayımı hangi padişah zamanında yapılmıştır?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "II. Mahmud",
+            "B": "I. Abdülhamid",
+            "C": "Sultan Reşat",
+            "D": "Abdülaziz"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 51,
+        "soru": "Einstein’ın görelilik teorisinde geçen ünlü formül nedir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "E=mc^2",
+            "B": "F=ma",
+            "C": "V=IR",
+            "D": "PV=nRT"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 52,
+        "soru": "Mezopotamya’daki ilk yazılı kanunları kim hazırlamıştır?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Hammurabi",
+            "B": "Sargon",
+            "C": "Hititler",
+            "D": "Nebukadnezar"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 53,
+        "soru": "Ay’a ilk ayak basan astronot kimdir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Neil Armstrong",
+            "B": "Buzz Aldrin",
+            "C": "Yuri Gagarin",
+            "D": "John Glenn"
+        },
+        "dogru": "A"
+    },
+    {
+        "id": 54,
+        "soru": "Türkiye'nin UNESCO Dünya Mirası listesinde yer alan ilk antik kenti hangisidir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Efes",
+            "B": "Truva",
+            "C": "Hattuşaş",
+            "D": "Bergama"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 55,
+        "soru": "Aristo'nun öğrencisi olan ünlü Makedon lider kimdir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Jül Sezar",
+            "B": "Büyük İskender",
+            "C": "Napolyon",
+            "D": "Augustus"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 56,
+        "soru": "I. Dünya Savaşı’na neden olan suikast hangi şehirde gerçekleşti?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Berlin",
+            "B": "Paris",
+            "C": "Sarajevo",
+            "D": "Viyana"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 57,
+        "soru": "“Kör Saatçi” kitabının yazarı kimdir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Stephen Hawking",
+            "B": "Richard Dawkins",
+            "C": "Carl Sagan",
+            "D": "Isaac Asimov"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 58,
+        "soru": "Türkiye'de ilk yerli otomobilin adı nedir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "Anadol",
+            "B": "Devrim",
+            "C": "TOGG",
+            "D": "Kartal"
+        },
+        "dogru": "B"
+    },
+    {
+        "id": 59,
+        "soru": "Altın Oran matematiksel olarak yaklaşık kaçtır?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "1.41",
+            "B": "2.71",
+            "C": "1.62",
+            "D": "3.14"
+        },
+        "dogru": "C"
+    },
+    {
+        "id": 60,
+        "soru": "“Yüzüklerin Efendisi” serisinin yazarı kimdir?",
+        "seviye": "zor",
+        "secenekler": {
+            "A": "J.K. Rowling",
+            "B": "J.R.R. Tolkien",
+            "C": "George R.R. Martin",
+            "D": "C.S. Lewis"
+        },
+        "dogru": "B"
+    }
+]

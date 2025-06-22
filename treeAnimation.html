@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+body{
+width:100%;
+height:100vh;
+align-content:center;
+justify-content:center;
+display:flex;
+}
+.outer{
+width:360px;
+height:560px;
+display:flex;
+flex-firection:column;
+}
+.bough{
+width:7px;
+height:20px;
+background:black;
+margin-right:5px;
+position:absolute;
+}
+.bough:nth-child(even){
+left:67px;
+transform:rotate(45deg);
+}
+.bough:nth-child(odd){
+left:30px;
+transform:rotate(-45deg);
+}
+.up{
+height:90px;
+display:flex;
+}
+.down{
+width:30px;
+height:90px;
+background:black;
+margin-left:30px;
+}
+
+.fruit{
+background:orange;
+width:5px;
+height:5px;
+border-radius:50%;
+}
+</style>
+</head>
+<body>
+<div class="outer">
+<div class="bough">
+<div class="fruit"></div>
+</div>
+<div class="down"></div>
+<div class="bough">
+<div class="fruit"></div>
+</div><div class="bough">
+<div class="fruit"></div>
+</div><div class="bough">
+<div class="fruit"></div>
+</div><div class="bough">
+<div class="fruit"></div>
+</div>
+<div class="bough">
+<div class="fruit"></div>
+</div>
+</div>
+
+<script>
+
+let bough = document.getElementsByClassName("bough");
+  alert("Bough count: " + bough.length); 
+let top=0
+alert(bough)
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zıplayan Top</title>
+  <link rel="stylesheet" href="style.css" />
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #222;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scene {
+  width: 300px;
+  height: 300px;
+  background-color: #333;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px #000;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #ffcc00, #ff9900);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: up 1s ease-out infinite ,down 1s ease-in  infinite;
+}
+
+@keyframes down{
+  0%, {
+    bottom: 200px;
+    transform: translateX(-50%) scale(1, 1);
+  }
+  100% {
+    bottom: 0px;
+    transform: translateX(-50%) scale(1.1, 0.9);
+  }
+}
+@keyframes up{
+  0%, {
+    bottom: 0;
+    transform: translateX(-50%) scale(1, 1);
+  }
+  100% {
+    bottom: 200px;
+    transform: translateX(-50%) scale(1.1, 0.9);
+  }
+}
+</style>
+</head>
+<body>
+  <div class="scene">
+    <div class="ball"></div>
+  </div>
+</body>
+</html>
