@@ -1,0 +1,194 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+*{
+margin:0px;
+padding:0px;
+box-sizing:border-box;
+}
+body{
+width:100%;
+height:100vh;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+.outer{
+width:360px;
+height:560px;
+background:orange;
+overflow:scroll;
+border-radius:10px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+.card{
+width:100%;
+height:80px;
+background:#222;
+display:flex;
+align-items:center;
+justify-content:center;
+position :relative;
+gap:5px;
+padding:5px;
+}
+.card div{
+border-radius:10px;
+width:100%;
+height:70px;
+}
+.left{
+background:red;
+}
+.right{
+background:green;
+}
+.middle{
+background:yellow;
+}
+
+.card .ball{
+width:20px;
+height:20px;
+border-radius:50%;
+background:white;
+position: absolute;
+border:1px solid black;
+}
+.bottom{
+display:flex;
+justify-content:center;
+bottom:0px;
+}
+button{
+width:100px;
+height:60px;
+background:oranges;
+
+}
+.z-0{
+
+z-index:-1;
+}
+</style>
+</head>
+<body>
+
+<div class="outer">
+<div class="cards"></div>
+
+<div class="bottom">
+<button class="retry" onclick="retry()">tekrar dene </button>
+<button class="continue" onclick="cont()">devam et </button>
+<button class="continue" onclick="basla()">Basla</button>
+
+</div>
+</div>
+
+<template>
+<div class="card">
+<div class="left"></div>
+<div class="middle"></div>
+<div class="right"></div>
+<div class="ball"></div>
+</div>
+</template>
+
+
+<script>
+let count=1
+let color=["red","green","blue"]
+let sucArr=[]
+let failArr=[]
+function setCards(){
+if(count>6||count<0){
+return false
+}
+
+for(let i=0;i<count;i++){
+let temp=document.querySelector("template").content.cloneNode(true)
+let card=temp.querySelector(".card")
+let randColor=color[Math.floor(Math.random()*3)]
+card.querySelector(".ball").style.backgroundColor=randColor
+card.querySelector(".ball").style.left=Math.floor(Math.random()*3)*120+50+"px"
+
+card.querySelectorAll("div").forEach(x=>{
+x.addEventListener("click",(y)=>check(i,x))
+
+})
+
+document.querySelector(".cards").appendChild(card)
+
+}
+}
+
+setCards()
+function check(i,e){
+let num=i
+let ball=parseInt(document.querySelectorAll(".ball")[i].offsetLeft)
+let current=parseInt(e.offsetLeft)
+
+if(current<ball&&ball-50<current){
+sucArr.push(i)
+}
+else{
+alert("seviye gecilemedi")
+failArr.push(i)
+}
+show(i)
+}
+function cont(){
+if((count<=6||failArr.length>0)&&sucArr.length==count){
+count+=1
+clearOuter()
+setCards()
+sucArr=[]
+failArr=[]
+}
+else if(count>sucArr.length){
+alert("once seviyeyi bitirin")
+}
+else{
+alert("tum leveller bitti")
+}
+
+}
+
+function retry(){
+clearOuter()
+setCards()
+}
+function clearOuter(){
+document.querySelector(".cards").innerHTML=""
+
+}
+function basla(){
+let ball=document.querySelectorAll(".ball")
+ball.forEach(x=>{
+x.classList.add("z-0")
+
+})
+
+}
+
+
+function show(i){
+let ball=document.querySelectorAll(".ball")
+ball.forEach((a,b)=>{
+if(b<=i){
+ball[i].classList.remove("z-0")
+
+}
+
+})
+
+}
+
+</script>
+</body>
+
+</html>
